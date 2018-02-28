@@ -1,0 +1,36 @@
+<h3>My Transformers</h3>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+    (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<div>
+	<app-transformer-search></app-transformer-search>
+</div>
+
+<div class="container">
+	<div class='row'>
+		<div class='col-md-2'>
+			<h3>Filter by faction:</h3>
+		</div>
+		<br>
+		<div class='col-md-10'></div>
+	</div>
+	<div class="row">
+		<input type='text' [(ngModel)]='listFilter' />
+		<div class='row'>
+			<div class='col-md-6 filter'>
+				<!-- <h3>Filtered by: {{listFilter}} </h3> -->
+				<ul class="heroes">
+					<li *ngFor ='let hero of heroes | factionFilter:listFilter' [(ngModel)]='listFilter' name="faction" Value=""><a routerLink="/detail/{{hero.id}}"><span class="badge">{{hero.id}}</span> {{hero.name}}</a></li>
+				</ul>
+			</div>
+			<div class='col-md-6'></div>
+		</div>
+	</div>
+</div>

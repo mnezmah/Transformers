@@ -1,0 +1,82 @@
+<div *ngIf="hero">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div>
+  	<table>
+  	  <tr><th>id:</th><td>{{hero.id}}</td></tr>
+  		<tr><th>Faction:</th><td>{{hero.faction}}</td></tr>
+  		<tr><th>Vehicle Group</th><td>{{hero.vehicleGroup}}</td></tr>
+  		<tr><th>Vehicle Type:</th><td>{{hero.vehicleType}}</td></tr>
+  		<tr><th>Vehicle Model:</th><td>{{hero.vehicleModel}}</td></tr>
+      <tr><th>Gear: </th><td>{{hero.gear}}</td></tr>
+  		<tr><th>Status: </th><td>{{hero.status | uppercase}}</td></tr>
+  	</table>
+  	<h3>Edit details</h3>
+    <div>
+      <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
+    
+    <ul class="radio">
+      <span>faction: </span>
+      <input class="button" type="radio" id="autobots" value="Autobots" [(ngModel)]="hero.faction" />
+      <label for="autobots">Autobots</label>
+      <input type="radio" id="decepticons" value="Decepticons" [(ngModel)]="hero.faction" />
+      <label for="decepticons">Decepticons</label>
+    </ul>
+  
+    <ul class="radio">
+      <span>vehicle group:</span>
+      <input type="radio" id="air" value="Air" [(ngModel)]="hero.vehicleGroup" />
+      <label for="air">air</label>
+      <input type="radio" id="sea" value="Sea" [(ngModel)]="hero.vehicleGroup" />
+      <label for="sea">sea</label>
+      <input type="radio" id="land" value="Land" [(ngModel)]="hero.vehicleGroup" />
+      <label for="land">land</label>
+    </ul>
+
+    <label>Select vehicle group: </label>
+    <select [disabled]="!hero.vehicleGroup" [(ngModel)]="hero.vehicleType" name="type" required>
+      <option selected disabled></option>
+      <option *ngFor="let type of typeAir" [disabled]="hero.vehicleGroup!=='Air'"[ngValue]="" >{{type}}</option>
+      <option *ngFor="let type of typeSea" [disabled]="hero.vehicleGroup!=='Sea'"[ngValue]="" >{{type}}</option>
+      <option *ngFor="let type of typeLand" [disabled]="hero.vehicleGroup!=='Land'" [ngValue]="" >{{type}}</option>
+    </select>
+
+    <label for="model">Select vehicle model: </label>
+    <select [disabled]="!hero.vehicleType" [(ngModel)]="hero.vehicleModel" name="model">
+      <option selected disabled></option>
+      <option *ngFor="let vehicleModel of planes" [disabled]="hero.vehicleType!=='Plane'" [value]="vehicleModel">{{ vehicleModel }}</option>
+      <option *ngFor="let vehicleModel of helicopters" [disabled]="hero.vehicleType!=='Helicopter'" [value]="vehicleModel">{{ vehicleModel }}</option>
+      <option *ngFor="let vehicleModel of boats" [disabled]="hero.vehicleType!=='Boat'" [value]="vehicleModel">{{ vehicleModel }}</option>
+      <option *ngFor="let vehicleModel of submarines" [disabled]="hero.vehicleType!=='Submarine'" [value]="vehicleModel">{{ vehicleModel }}</option>
+      <option *ngFor="let vehicleModel of cars" [disabled]="hero.vehicleType!=='Car'" [value]="vehicleModel">{{ vehicleModel }}</option>
+      <option *ngFor="let vehicleModel of trucks" [disabled]="hero.vehicleType!=='Truck'" [value]="vehicleModel">{{ vehicleModel }}</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label>gear:
+      <input [(ngModel)]="hero.gear" placeholder="gear"/>
+    </label>      
+  </div>
+
+  <div>
+    <ul class="radio status">
+      <span>Status:</span>
+      <input type="radio" id="ok" value="OK" [(ngModel)]="hero.status" />
+      <label for="ok">OK</label>
+      <input type="radio" id="injured" value="INJURED" [(ngModel)]="hero.status" />
+      <label for="injured">INJURED</label>
+      <input type="radio" id="mia" value="MIA" [(ngModel)]="hero.status" />
+      <label for="mia">MIA</label>
+    </ul>
+  </div>
+
+</div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+  
+
+    
