@@ -2,7 +2,7 @@
   <h2>{{ hero.name | uppercase }} Details</h2>
   <div>
   	<table>
-  	  <tr><th>id:</th><td>{{hero.id}}</td></tr>
+  	  <tr><th>Id:</th><td>{{hero.id}}</td></tr>
   		<tr><th>Faction:</th><td>{{hero.faction}}</td></tr>
   		<tr><th>Vehicle Group</th><td>{{hero.vehicleGroup}}</td></tr>
   		<tr><th>Vehicle Type:</th><td>{{hero.vehicleType}}</td></tr>
@@ -12,13 +12,13 @@
   	</table>
   	<h3>Edit details</h3>
     <div>
-      <label>name:
+      <label>Name:
       <input [(ngModel)]="hero.name" placeholder="name"/>
       </label>
     </div>
     
     <ul class="radio">
-      <span>faction: </span>
+      <span>Faction: </span>
       <input class="button" type="radio" id="autobots" value="Autobots" [(ngModel)]="hero.faction" />
       <label for="autobots">Autobots</label>
       <input type="radio" id="decepticons" value="Decepticons" [(ngModel)]="hero.faction" />
@@ -26,7 +26,7 @@
     </ul>
   
     <ul class="radio">
-      <span>vehicle group:</span>
+      <span>Vehicle group:</span>
       <input type="radio" id="air" value="Air" [(ngModel)]="hero.vehicleGroup" />
       <label for="air">air</label>
       <input type="radio" id="sea" value="Sea" [(ngModel)]="hero.vehicleGroup" />
@@ -35,7 +35,7 @@
       <label for="land">land</label>
     </ul>
 
-    <label>Select vehicle group: </label>
+    <label>Select vehicle type: </label>
     <select [disabled]="!hero.vehicleGroup" [(ngModel)]="hero.vehicleType" name="type" required>
       <option selected disabled></option>
       <option *ngFor="let type of typeAir" [disabled]="hero.vehicleGroup!=='Air'"[ngValue]="" >{{type}}</option>
@@ -56,7 +56,7 @@
   </div>
   <br>
   <div>
-    <label>gear:
+    <label>Gear:
       <input [(ngModel)]="hero.gear" placeholder="gear"/>
     </label>      
   </div>
