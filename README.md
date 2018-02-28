@@ -1,6 +1,6 @@
 # Transformers App
 
-This is a simple app which shows the list of Transformers, let you add new transformer and edit its characteristics. 
+This is a simple app which shows the list of Transformers, let you add new Transformer and edit its characteristics. 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5  using Angular version 5.0.5
 
@@ -9,7 +9,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - Open terminal
 - Navigate to root of downloaded folder
 - run `npm install` to install node dependencies
-- Run `ng serve --open`  to open app in your browser on address `http://localhost:4200/`
+- Run `npm start`  to get the app running 
+- open your browser on address `http://localhost:4200/`
 
 The app reloads automatically when changing any source file.
 
